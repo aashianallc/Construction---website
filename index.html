@@ -48,6 +48,29 @@
     right: 1.5em;
     left: auto;
   }
+  /* OFF-CANVAS MENU OPEN DIRECTION */
+
+  /* ENGLISH (LTR) → menu opens from LEFT */
+  [dir="ltr"] #menu {
+    left: 0;
+    right: auto;
+    transform: translateX(-100%);
+  }
+
+  [dir="ltr"] body.is-menu-visible #menu {
+    transform: translateX(0);
+  }
+
+  /* ARABIC (RTL) → menu opens from RIGHT */
+  [dir="rtl"] #menu {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+  }
+
+  [dir="rtl"] body.is-menu-visible #menu {
+    transform: translateX(0);
+  }
 
   </style>
 </head>
@@ -235,6 +258,7 @@
 </script>
 
  
+
 
 
 
