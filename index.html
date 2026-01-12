@@ -185,17 +185,14 @@
 
 <!-- LANGUAGE TOGGLE SCRIPT -->
 <script>
-  let currentLang = 'en';
   const toggle = document.getElementById('langToggle');
 
-  toggle.onclick = () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-
+  function applyLanguage(lang) {
     document.querySelectorAll('[data-en]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + currentLang);
+      el.textContent = el.getAttribute('data-' + lang);
     });
 
-    if (currentLang === 'ar') {
+    if (lang === 'ar') {
       document.documentElement.lang = 'ar';
       document.documentElement.dir = 'rtl';
       document.body.classList.add('ar');
@@ -206,8 +203,20 @@
       document.body.classList.remove('ar');
       toggle.textContent = 'AR';
     }
+
+    localStorage.setItem('lang', lang);
+  }
+
+  // Load saved language (default EN)
+  const savedLang = localStorage.getItem('lang') || 'en';
+  applyLanguage(savedLang);
+
+  // Toggle on click
+  toggle.onclick = () => {
+    const newLang = localStorage.getItem('lang') === 'en' ? 'ar' : 'en';
+    applyLanguage(newLang);
   };
 </script>
 
-</body>
-</html>
+ 
+
