@@ -33,6 +33,22 @@
     [dir="rtl"] .tiles article {
       direction: rtl;
     }
+      /* BURGER MENU POSITION BASED ON LANGUAGE */
+
+  /* English (LTR) → menu LEFT */
+  [dir="ltr"] #header nav {
+    position: absolute;
+    left: 1.5em;
+    right: auto;
+  }
+
+  /* Arabic (RTL) → menu RIGHT */
+  [dir="rtl"] #header nav {
+    position: absolute;
+    right: 1.5em;
+    left: auto;
+  }
+
   </style>
 </head>
 
@@ -219,5 +235,6 @@
 </script>
 
  
+
 
 
